@@ -1,0 +1,22 @@
+{
+    "name": "sarpong/scheduler",
+    "description": "A lightweight framework for scheduling customized bulk mails.",
+    "type": "project",
+    "require": {
+        "hutnikau/job-scheduler": "dev-master",
+        "phpmailer/phpmailer": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emmanuel Oppong-Sarpong",
+            "email": "esarpong51@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Sarps\\": "lib"
+        }
+    }
+}

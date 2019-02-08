@@ -1,5 +1,5 @@
 {
-    "name": "sarpong/scheduler",
+    "name": "sarps/mail-scheduler",
     "description": "A lightweight framework for scheduling customized bulk mails.",
     "type": "project",
     "require": {

@@ -17,7 +17,9 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Sarps\\": "lib"
+            "Sarps\\": "lib",
+            "App\\": "app"
         }
-    }
+    },
+    "prefer-stable": true
 }

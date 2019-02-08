@@ -13,7 +13,7 @@
             "email": "esarpong51@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Sarps\\": "lib"

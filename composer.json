@@ -1,5 +1,6 @@
 {
     "name": "sarps/mail-scheduler",
+    "version": "1.0.0",
     "description": "A lightweight framework for scheduling customized bulk mails.",
     "type": "project",
     "require": {
@@ -13,7 +14,7 @@
             "email": "esarpong51@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Sarps\\": "lib"

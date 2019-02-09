@@ -79,7 +79,8 @@ class Sarps extends CLI
         $app = new $className();
 
         if ($options->getOpt('mail')) {
-            echo $options->getOpt('address');
+            $addr = $options->getOpt('address');
+            $app->mail($addr);
         }
 
     }

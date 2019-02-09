@@ -1,13 +1,16 @@
 <?php
 
-/**
-* Logger - Simple PHP mailing class.
-*/
-
 namespace App;
 
 use Sarps\Mailer\Mailer;
+
 use Sarps\Logger\Logger;
+use Sarps\Logger\Email;
+use Sarps\Logger\FrontDesk;
+use Sarps\Logger\Moby;
+use Sarps\Logger\NewsLetter;
+use Sarps\Logger\OnlineBanking;
+
 use Sarps\Scheduler\Scheduler;
 
 /**
@@ -45,6 +48,11 @@ class AppTemplate {
     }
 
     public function run($from)
+    {
+        
+    }
+
+    public function mail($email)
     {
         
     }

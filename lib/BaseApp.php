@@ -14,8 +14,6 @@ use Sarps\Logger\FrontDesk as FrontDeskLogger;
 use Sarps\Logger\NewsLetter as NewsLetterLogger;
 use Sarps\Logger\OnlineBanking as OnlineBankingLogger;
 
-use Sarps\Scheduler\Scheduler;
-
 /**
 * @author  Emmanuel Oppong-Sarpong
 * @since   February 8, 2019
@@ -63,11 +61,17 @@ class BaseApp extends Console {
         $this->messagingStartCallback();
 
         while ( $mail ) {
+
             $index++;
             $this->info("Sending {$index} to {$mail}");
 
-            if ($data == false) {
-                return $this->error('Insufficient data to continue operation');
+            if ( gettype($data) != "array" ) {
+                
+                if ($data == false) {
+                    return $this->error('Insufficient data to continue operation');
+                }
+
+                return $this->error('Data in "$data" must be at least, 2-dimensional array or that returned by "getData($index) must be at least 1-dimensional"');
             }
 
             if( $this->sendMail($mail, $data) ) {
@@ -75,6 +79,8 @@ class BaseApp extends Console {
             } else {
                 $this->messageFailedCallback($index-1, $mail, $data);
             }
+
+            sleep(2);
 
             $mail = $this->getMail($index);
             $data = $this->getData($index);
@@ -87,30 +93,31 @@ class BaseApp extends Console {
     public function sendMail($email, $data)
     {
         $mail = new Mailer;
-
-        $mail->isSMTP();            
-                         
-        $mail->Host = "smtp.gmail.com";
-        $mail->SMTPAuth = true;  
-        $mail->Username = "esarpong51@gmail.com";                 
-        $mail->Password = "xzquschuzqffkwcu";
-        $mail->SMTPSecure = "tls";
-        $mail->Port = 587;                                   
-
-        $mail->From = "esarpong51@gmail.com";
-        $mail->FromName = "Sarps Test Framework";
-
+        $mail->From = getenv('FROM_MAIL');
+        $mail->FromName = getenv('FROM_NAME');
+        $mail->isHTML( getenv('IS_HTML') );
+        
         $mail->addAddress($email);
-
-        $mail->isHTML(true);
-
         $mail->Subject = $this->getSubject();
         $mail->loadBodyFromView($this->getView(), $data);
+        
+        if ( getenv('IS_SMTP') == 'true') {
+
+            $mail->isSMTP();
+            
+            $mail->Host = getenv('SMTP_HOST');
+            $mail->SMTPAuth = getenv('SMTP_AUTH');  
+            $mail->Username = getenv('SMTP_USER');          
+            $mail->Password = getenv('SMTP_PASS');
+            $mail->SMTPSecure = getenv('SMTP_SECURE');
+            $mail->Port = getenv('TCP_PORT');
+                                             
+        }
 
         if(!$mail->send()) {
             $this->error("Mailer Error: " . $mail->ErrorInfo);
             return false;
-        } 
+        }
         $this->success("Message has been sent successfully");
         return true;
     }

@@ -32,28 +32,33 @@ class ExampleApp extends \Sarps\BaseApp {
 
     protected $mails = array (
         "esarpong51@gmail.com",
-        "esarpong51@gmail.com",
-        "esarpong51@gmail.com"
     );
+
+    public function getData($index)
+    {
+        return array("app_name" => "ExampleApp{$index}");
+    }
 
     public function messagingStartCallback()
     {
-        
+        //$this->warning('Messaging started, make sure you have good internet connection');
     }
 
     public function messageSentCallback($index, $email, $data)
     {
-
+        //$logger = new EmailLogger;
+        //$logger->log($index, $email, 'ENTERPRISE', 'sent');
     }
 
     public function messageFailedCallback($index, $email, $data)
     {
-
+        //$logger = new EmailLogger;
+        //$logger->log($index, $email, 'ENTERPRISE', 'not sent');
     }
 
     public function messagingCompleteCallback()
     {
-        
+        //$this->success('Messaging completed, please check to verify all mails sent');
     }
 
 }

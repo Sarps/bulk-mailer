@@ -4,11 +4,19 @@ require __DIR__ . '/vendor/autoload.php';
 
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
+use Symfony\Component\Dotenv\Dotenv;
 
 class Sarps extends CLI
 {
     protected $appDirectory = __DIR__.'/app';
     protected $libDirectory = __DIR__.'/lib';
+
+    public function __construct()
+    {
+        parent::__construct();
+        $dotenv = new Dotenv();
+        $dotenv->load(__DIR__.'/.env');
+    }
 
     protected function setup(Options $options)
     {

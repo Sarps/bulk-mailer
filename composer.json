@@ -5,7 +5,8 @@
     "type": "project",
     "require": {
         "hutnikau/job-scheduler": "dev-master",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "splitbrain/php-cli": "^1.1"
     },
     "license": "MIT",
     "authors": [

@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Logger - Simple PHP logging class.
+* Logger - Simple PHP mailing class.
 */
 
 namespace Sarps\Mailer;

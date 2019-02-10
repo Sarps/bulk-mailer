@@ -1,0 +1,33 @@
+{
+    "name": "sarps/bulk-mailer",
+    "version": "1.0.0",
+    "description": "A lightweight CLI framework for sending customized bulk mails.",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "dev-master",
+        "splitbrain/php-cli": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emmanuel Oppong-Sarpong",
+            "email": "esarpong51@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Sarps\\": "lib",
+            "App\\": "app"
+        }
+    },
+    "prefer-stable": true,
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "require-dev": {
+        "symfony/dotenv": "^4.2"
+    }
+}

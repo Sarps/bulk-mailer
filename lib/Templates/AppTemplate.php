@@ -1,9 +1,6 @@
 <?php
 
-namespace App\Mailer;
-
-use Sarps\Logger\Logger;
-use App\Logger\AppTemplate as AppTemplateLogger;
+namespace App\AppTemplate;
 
 /**
 * @author  Emmanuel Oppong-Sarpong
@@ -33,20 +30,20 @@ class AppTemplate extends \Sarps\BaseApp {
 
     }
 
-    public function meailingStartCallback()
+    public function mailingStartCallback()
     {
         //$this->warning('AppTemplate mailing started, make sure you have good internet connection');
     }
 
     public function mailSentCallback($index, $email, $data)
     {
-        //$logger = new AppTemplateLogger;
+        //$logger = new AppTemplateLogger();
         //$logger->log('sent', $email, json_encode($data) );
     }
 
     public function mailFailedCallback($index, $email, $data)
     {
-        //$logger = new AppTemplateLogger;
+        //$logger = new AppTemplateLogger();
         //$logger->log('not sent', $email, json_encode($data));
     }
 

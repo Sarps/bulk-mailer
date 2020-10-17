@@ -5,6 +5,8 @@ require __DIR__ . '/vendor/autoload.php';
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
 use Symfony\Component\Dotenv\Dotenv;
+use Weevers\Path\Path;
+use Jawira\CaseConverter\Convert;
 
 class Sarps extends CLI
 {
@@ -55,31 +57,34 @@ class Sarps extends CLI
     protected function makeCommand(Options $options)
     {
         $args = $options->getArgs();
-        foreach ($args as $arg) {
-            if (file_exists("{$this->appDirectory}/Mailer/{$arg}.php")) {
-                $this->error("App '{$arg}' already exists");
+        foreach ($args as $project) {
+            $view = $this->generateViewName($project);
+            $projectDirectory = Path::resolve($this->appDirectory, $project);
+
+            if (is_dir($projectDirectory)) {
+                $this->error("App '{$project}' already exists");
                 continue;
             }
-            $view = $this->generateViewName($arg);
+            $this->setupProjectDirectory($projectDirectory);
             // Scaffold the mailer
             $this->copyTemplate(
-                "{$this->templateDirectory}/AppTemplate.php", 
-                "{$this->appDirectory}/Mailer/{$arg}.php", 
-                array('AppTemplate' => $arg, 'ViewName' => $view)
+                Path::resolve($this->templateDirectory, "AppTemplate.php"),
+                Path::resolve($projectDirectory, "{$project}.php"),
+                array('AppTemplate' => $project, 'ViewName' => $view)
             );
             // Scaffold the logger
             $this->copyTemplate(
-                "{$this->templateDirectory}/LoggerTemplate.php", 
-                "{$this->appDirectory}/Logger/{$arg}.php", 
-                array('LoggerTemplate' => $arg)
+                Path::resolve($this->templateDirectory, "LoggerTemplate.php"),
+                Path::resolve($projectDirectory, "{$project}Logger.php"),
+                array('LoggerTemplate' => $project)
             );
             // Scaffold the view
             $this->copyTemplate(
                 "{$this->templateDirectory}/view_template.php", 
-                "{$this->appDirectory}/views/{$view}.php", 
-                array('AppClass' => $arg)
+                "{$projectDirectory}/views/{$view}.php",
+                array('AppClass' => $project)
             );
-            $this->success("'{$arg}' app scaffolded successfully");
+            $this->success("'{$project}' app scaffolded successfully");
         }
     }
 
@@ -113,7 +118,6 @@ class Sarps extends CLI
 
     private function copyTemplate($src, $dest, $replaceMap = array())
     {
-        $this->setUpAppDirectory();
         $fp = fopen($dest, 'w+') or die();
         $contents = file_get_contents($src);
         foreach ($replaceMap as $key => $value) {
@@ -124,27 +128,17 @@ class Sarps extends CLI
         $this->info("Created file {$dest}");
     }
 
-    private function setUpAppDirectory()
+    private function setupProjectDirectory($directory)
     {
-        if (!is_dir("{$this->appDirectory}/Logger")) {
-            mkdir("{$this->appDirectory}/Logger", 0777, true);
-        }
-        if (!is_dir("{$this->appDirectory}/Mailer")) {
-            mkdir("{$this->appDirectory}/Mailer", 0777, true);
+        if (!is_dir("{$directory}/views")) {
+            mkdir("{$directory}/views", 0777, true);
         }      
     }
 
     private function generateViewName($className)
     {
-        $className = strtolower($className);
-        if(!file_exists("{$this->appDirectory}/views/{$className}.php")) {
-            return $className;
-        }
-        $index = 0;
-        while(file_exists("{$this->appDirectory}/views/{$className}{$index}.php")) {
-            $index++;
-        }
-        return "{$className}{$index}";
+        $hero = new Convert($className);
+        return $hero->toKebab();
     }
 
 }

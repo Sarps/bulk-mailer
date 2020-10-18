@@ -23,11 +23,4 @@ class Rocket
         return 'cli' == php_sapi_name() ? CLIKernel::boot() : HttpKernel::boot();
     }
 
-    static function bootCLI() {
-        CLIKernel::boot();
-    }
-
-    static function bootHttp() {
-        HttpKernel::boot();
-    }
 }

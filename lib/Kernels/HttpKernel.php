@@ -10,6 +10,7 @@ class HttpKernel extends BaseKernel
     static function boot()
     {
         parent::boot();
+        var_dump(\Sarps\Route::attributes());
     }
 
 }

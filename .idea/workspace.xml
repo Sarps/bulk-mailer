@@ -20,28 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd65528-9305-48ff-bfcb-d6124f3f316b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Kernels/BaseKernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Kernels/CLIKernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Kernels/HttpKernel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Mailer/Request.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Providers/AppRunner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Providers/CLIRunner.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Providers/RouteBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Rocket.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Route.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bulk-mailer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bulk-mailer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/BaseApp.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/LaunchPad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Console.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Console.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Mailer/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Mailer/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Templates/AppTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Templates/AppTemplate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Kernels/HttpKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Kernels/HttpKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Rocket.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Rocket.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailer" beforeDir="false" afterPath="$PROJECT_DIR$/mailer" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +102,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602938997848</updated>
       <workItem from="1602938999772" duration="13402000" />
-      <workItem from="1602972149577" duration="10145000" />
+      <workItem from="1602972149577" duration="12075000" />
     </task>
     <servers />
   </component>
@@ -159,10 +142,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="352" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603012316371" />
-    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602969081209">
+    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603018787771">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602969081209" />
+    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603018787771" />
     <state x="738" y="451" key="ComposerInitDialogKey" timestamp="1602939945269">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

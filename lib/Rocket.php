@@ -15,6 +15,12 @@ class Rocket
     static function app() {
         $dotenv = new Dotenv();
         $dotenv->load(Path::resolve(ROOT, '.env'));
+        return new Rocket();
+    }
+
+    function boot()
+    {
+        return 'cli' == php_sapi_name() ? CLIKernel::boot() : HttpKernel::boot();
     }
 
     static function bootCLI() {

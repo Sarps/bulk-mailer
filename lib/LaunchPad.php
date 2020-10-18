@@ -48,51 +48,13 @@ class LaunchPad
         }
     }
 
-    public function sendBulkMail()
-    {
-        $index = 0;
-        $mail = $this->getMail(0);
-        $data = $this->getData(0);
-
-        $this->mailingStartCallback();
-
-        while ($mail) {
-
-            $index++;
-            $this->info("Sending {$index} to {$mail}");
-
-            if (gettype($data) != "array") {
-
-                if ($data == false) {
-                    return $this->error('Insufficient data to continue operation');
-                }
-
-                return $this->error('Data in "$data" must be at least, 2-dimensional array or that returned by "getData($index) must be at least 1-dimensional"');
-            }
-
-            if ($this->sendMail($mail, $data)) {
-                $this->mailSentCallback($index - 1, $mail, $data);
-            } else {
-                $this->mailFailedCallback($index - 1, $mail, $data);
-            }
-
-            sleep(2);
-
-            $mail = $this->getMail($index);
-            $data = $this->getData($index);
-        }
-
-        $this->mailingCompleteCallback();
-
-    }
-
     public function sendMail()
     {
         foreach ($this->addresses() as $address) {
             $this->mail->addAddress($address);
         }
         $this->mail->Subject = $this->subject();
-        $this->mail->loadBodyFromView($this->view(), $data);
+        $this->mail->loadBodyFromView($this->view(), $this->request);
 
         if (!$this->mail->send()) {
             $this->error("Mailer Error: " . $this->mail->ErrorInfo);
@@ -142,8 +104,6 @@ class LaunchPad
 
     }
 
-    public function __destruct()
-    {
-    }
+    public function __destruct(){}
 
 }

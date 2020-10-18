@@ -21,7 +21,7 @@ use Sarps\Logger\OnlineBanking as OnlineBankingLogger;
 * @version 1.0.0
 */
 
-class BaseApp extends Console {
+class LaunchPad extends Console {
 
     protected $mail;
     protected $subject;

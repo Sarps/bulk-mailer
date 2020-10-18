@@ -17,7 +17,7 @@ use \PHPMailer\PHPMailer\PHPMailer;
 
 class Mailer extends PHPMailer {
 
-    protected $rootFolder = __DIR__."/../../app/views";
+    protected $rootFolder = __DIR__ . "/../../app/views";
 
     public function __construct()
     {

@@ -25,7 +25,6 @@ class Console extends CLI
         if ($options->getOpt('version')) {
             return $this->info('1.0.0');
         }
-
     }
 
 }

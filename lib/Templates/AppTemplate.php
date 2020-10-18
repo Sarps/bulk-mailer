@@ -9,7 +9,7 @@ namespace App\AppTemplate;
 * @version 1.0.0
 */
 
-class AppTemplate extends \Sarps\BaseApp {
+class AppTemplate extends \Sarps\LaunchPad {
 
     protected $view = "ViewName";
 

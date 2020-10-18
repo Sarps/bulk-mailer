@@ -20,15 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecd65528-9305-48ff-bfcb-d6124f3f316b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Logger/ExampleApp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mailer/ExampleApp.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/assets/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/example.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Kernels/BaseKernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Kernels/CLIKernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Kernels/HttpKernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Mailer/Request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Providers/AppRunner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Providers/CLIRunner.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Providers/RouteBuilder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Rocket.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bulk-mailer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bulk-mailer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/BaseApp.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/LaunchPad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Console.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Console.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Mailer/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Mailer/Mailer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Templates/AppTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Templates/AppTemplate.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mailer" beforeDir="false" afterPath="$PROJECT_DIR$/mailer" afterDir="false" />
     </list>
@@ -37,7 +49,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -65,6 +77,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/weevers/path" />
       <path value="$PROJECT_DIR$/vendor/jawira/case-converter" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
     </include_path>
   </component>
   <component name="ProjectId" id="1j0RPGx6fBKEMQiC7GM5Dyj2NjJ" />
@@ -75,11 +92,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.php" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\C809610\Projects\API\bulk-mailer\lib" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\C809610\Projects\API\bulk-mailer\src" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8080">
+    <configuration name="Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8080" router_script="$PROJECT_DIR$/index.php" use_router_script="true">
       <method v="2" />
     </configuration>
   </component>
@@ -91,7 +118,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602938997848</updated>
-      <workItem from="1602938999772" duration="7246000" />
+      <workItem from="1602938999772" duration="13402000" />
+      <workItem from="1602972149577" duration="10145000" />
     </task>
     <servers />
   </component>
@@ -108,23 +136,72 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="200" key="#PHP" timestamp="1602948752121">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="667" y="200" key="#PHP/0.0.1920.1080@0.0.1920.1080" timestamp="1602948752121" />
-    <state x="414" y="193" width="1092" height="731" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602948763625">
+    <state x="414" y="193" width="1092" height="755" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603014297717">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="414" y="193" width="1092" height="731" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602948763625" />
+    <state x="414" y="193" width="1092" height="755" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603014297717" />
     <state x="728" y="340" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602948945760">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="728" y="340" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1602948945760" />
+    <state x="765" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1603017069133">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1603017069133" />
+    <state x="352" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603012316371">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="352" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603012316371" />
+    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602969081209">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="293" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1602969081209" />
     <state x="738" y="451" key="ComposerInitDialogKey" timestamp="1602939945269">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="738" y="451" key="ComposerInitDialogKey/0.0.1920.1080@0.0.1920.1080" timestamp="1602939945269" />
+    <state x="740" y="325" key="FileChooserDialogImpl" timestamp="1603014294462">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="740" y="325" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1603014294462" />
+    <state width="938" height="396" key="GridCell.Tab.0.bottom" timestamp="1603014299196">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1603014299196" />
+    <state width="938" height="396" key="GridCell.Tab.0.center" timestamp="1603014299194">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1603014299194" />
+    <state width="938" height="396" key="GridCell.Tab.0.left" timestamp="1603014299194">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1603014299194" />
+    <state width="938" height="396" key="GridCell.Tab.0.right" timestamp="1603014299195">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1603014299194" />
+    <state x="715" y="261" key="NewPhpClassDialog" timestamp="1603014149370">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="715" y="261" key="NewPhpClassDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603014149370" />
+    <state x="794" y="462" key="NewPhpFileDialog" timestamp="1603009162359">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="794" y="462" key="NewPhpFileDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1603009162359" />
+    <state x="666" y="273" width="587" height="534" key="find.popup" timestamp="1603016046839">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="666" y="273" width="587" height="534" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603016046839" />
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1603015686194">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603015686194" />
   </component>
 </project>
